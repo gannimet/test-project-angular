@@ -1,12 +1,20 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { RestService } from './rest.service';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+    selector: 'app-root',
+    imports: [],
+    templateUrl: './app.html',
+    styleUrl: './app.scss',
 })
 export class App {
-  protected readonly title = signal('test-project-angular');
+    private readonly restService = inject(RestService);
+
+    randomNumber = signal<number | undefined>(undefined);
+
+    getRandomNumber() {
+        this.restService.getRandomNumber().subscribe((result) => {
+            this.randomNumber.set(result.value);
+        });
+    }
 }
