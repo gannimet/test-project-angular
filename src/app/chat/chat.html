@@ -1,0 +1,10 @@
+<p class="websocket-connection">
+    Status: {{ webSocketConnector.isConnected() ? '🟢 Verbunden' : '🔴 Getrennt' }}
+</p>
+
+<ul class="chat-messages">
+    @let lastMessage = webSocketConnector.messageReceived();
+    @if (lastMessage) {
+        <li>{{ lastMessage }}</li>
+    }
+</ul>

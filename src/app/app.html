@@ -1,15 +1,14 @@
+<nav>
+    <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/chat">Chat</a></li>
+    </ul>
+</nav>
+
 <div class="main-content">
     <button (click)="getRandomNumber()">Get random number</button>
 
     <div class="result">{{ randomNumber() }}</div>
 
-    <p class="websocket-connection">
-        Status: {{ webSocketConnector.isConnected() ? '🟢 Verbunden' : '🔴 Getrennt' }}
-    </p>
-
-    <ul class="chat-messages">
-        @let lastMessage = webSocketConnector.messageReceived(); @if (lastMessage) {
-        <li>{{ lastMessage }}</li>
-        }
-    </ul>
+    <router-outlet></router-outlet>
 </div>

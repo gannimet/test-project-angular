@@ -1,11 +1,13 @@
-import { signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
+@Injectable({
+    providedIn: 'root',
+})
 export class WebSocketConnector {
-    private static instance?: WebSocketConnector;
     private readonly webSocket: WebSocket;
 
-    isConnected = signal(false);
-    messageReceived = signal<string | undefined>(undefined);
+    readonly isConnected = signal(false);
+    readonly messageReceived = signal<string | undefined>(undefined);
 
     private constructor() {
         this.webSocket = new WebSocket('ws://localhost:3000');
@@ -21,13 +23,5 @@ export class WebSocketConnector {
         this.webSocket.onmessage = (event) => {
             this.messageReceived.set(event.data);
         };
-    }
-
-    static getInstance() {
-        if (!this.instance) {
-            this.instance = new WebSocketConnector();
-        }
-
-        return this.instance;
     }
 }

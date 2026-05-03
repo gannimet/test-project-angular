@@ -1,0 +1,22 @@
+{
+  "eslint.validate": ["javascript", "typescript", "html"],
+  "eslint.options": {
+    "extensions": [".js", ".ts", ".html"]
+  },
+  "eslint.workingDirectories": ["ui", "backend", "common"],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.fixAll.tslint": "never",
+    "source.fixAll.eslint": "explicit"
+  },
+  "[mdx]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "never"
+    }
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.stickyScroll.enabled": true,
+  "editor.stickyScroll.maxLineCount": 10,
+  "editor.tabSize": 4
+}
