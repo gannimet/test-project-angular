@@ -1,0 +1,9 @@
+<h1>Kino-Sitzplatzbuchung</h1>
+
+<section class="seatmap">
+    @for (rowIndex of rowIndices(); track rowIndex) {
+        @for (seatIndex of seatIndices(); track seatIndex) {
+            <div>({{ rowIndex }}, {{ seatIndex }})</div>
+        }
+    }
+</section>

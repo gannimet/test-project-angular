@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { WebSocketConnector } from '../websocket/websocket-connector';
+import { WebSocketConnector } from '../services/websocket/websocket-connector';
 
 @Component({
     selector: 'app-chat',

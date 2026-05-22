@@ -1,0 +1,20 @@
+<div class="color-picker">
+    <div class="color-picker__preview" [style.backgroundColor]="colorString()"></div>
+
+    <div class="color-picker__inputs">
+        <div class="color-picker__inputs__form-line">
+            <label for="red-input">Red:</label>
+            <input id="red-input" type="number" [formField]="colorForm.red" />
+        </div>
+
+        <div class="color-picker__inputs__form-line">
+            <label for="green-input">Green:</label>
+            <input id="green-input" type="number" [formField]="colorForm.green" />
+        </div>
+
+        <div class="color-picker__inputs__form-line">
+            <label for="blue-input">Blue:</label>
+            <input id="blue-input" type="number" [formField]="colorForm.blue" />
+        </div>
+    </div>
+</div>

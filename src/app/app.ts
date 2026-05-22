@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { RestService } from './rest-api/rest.service';
+import { RestService } from './services/rest-api/rest.service';
 
 @Component({
     selector: 'app-root',

@@ -5,4 +5,12 @@ export const routes: Routes = [
         path: 'chat',
         loadComponent: () => import('./chat/chat').then((m) => m.Chat),
     },
+    {
+        path: 'cinema',
+        loadComponent: () => import('./cinema/cinema').then((m) => m.Cinema),
+    },
+    {
+        path: 'color-picker',
+        loadComponent: () => import('./color-picker/color-picker').then((m) => m.ColorPicker),
+    },
 ];
