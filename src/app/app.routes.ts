@@ -13,4 +13,8 @@ export const routes: Routes = [
         path: 'color-picker',
         loadComponent: () => import('./color-picker/color-picker').then((m) => m.ColorPicker),
     },
+    {
+        path: 'todos',
+        loadComponent: () => import('./todo-page/todo-page').then((m) => m.TodoPage),
+    },
 ];
