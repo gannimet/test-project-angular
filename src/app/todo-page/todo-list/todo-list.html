@@ -1,0 +1,10 @@
+<ul class="todo-list">
+    @for (todoItem of todoItems(); track todoItem.id) {
+        <li class="list-item">
+            <span class="list-item-name">{{ todoItem.name }}</span>
+            <button class="list-item-delete-button" (click)="deleteButtonClick.emit(todoItem.id)">
+                Löschen
+            </button>
+        </li>
+    }
+</ul>

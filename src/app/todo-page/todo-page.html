@@ -1,18 +1,8 @@
 <h1>Todo List</h1>
 
-<form [formGroup]="todoFormGroup" (ngSubmit)="todoFormSubmitted()">
-    <label for="newTodoName">New Todo:</label>
-    <input id="newTodoName" [formControl]="newTodoCtrl" #newTodoInput />
-    <button type="submit" [disabled]="!newTodoCtrl.valid">Add</button>
-</form>
+<app-todo-form (newTodoItemCreated)="addNewItem($event)"></app-todo-form>
 
-<ul class="todo-list">
-    @for (todoItem of todoItems(); track todoItem.id) {
-        <li class="list-item">
-            <span class="list-item-name">{{ todoItem.name }}</span>
-            <button class="list-item-delete-button" (click)="deleteButtonClicked(todoItem.id)">
-                Löschen
-            </button>
-        </li>
-    }
-</ul>
+<app-todo-list
+    [todoItems]="todoItems()"
+    (deleteButtonClick)="deleteButtonClicked($event)"
+></app-todo-list>

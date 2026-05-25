@@ -1,0 +1,5 @@
+<form [formGroup]="todoFormGroup" (ngSubmit)="todoFormSubmitted()">
+    <label for="newTodoName">New Todo:</label>
+    <input id="newTodoName" [formControl]="newTodoCtrl" #newTodoInput />
+    <button type="submit" [disabled]="!newTodoCtrl.valid">Add</button>
+</form>

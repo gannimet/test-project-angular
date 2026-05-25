@@ -1,10 +1,11 @@
-import { Component, ElementRef, signal, viewChild } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, signal } from '@angular/core';
 import { TodoItem } from './TodoItem';
+import { TodoForm } from './todo-form/todo-form';
+import { TodoList } from './todo-list/todo-list';
 
 @Component({
     selector: 'app-todo-page',
-    imports: [ReactiveFormsModule],
+    imports: [TodoList, TodoForm],
     templateUrl: './todo-page.html',
     styleUrl: './todo-page.scss',
 })
@@ -14,28 +15,10 @@ export class TodoPage {
         { id: 'b', name: 'Angular lernen' },
     ]);
 
-    readonly newTodoCtrl = new FormControl('', { validators: [Validators.required] });
-    readonly todoFormGroup = new FormGroup({
-        todoCtrl: this.newTodoCtrl,
-    });
-
-    readonly newTodoInput = viewChild<ElementRef<HTMLInputElement>>('newTodoInput');
-
-    todoFormSubmitted() {
-        const newTodoName = this.newTodoCtrl.value;
-
-        if (!newTodoName) {
-            return;
-        }
-
-        const newTodoItem: TodoItem = { id: crypto.randomUUID(), name: newTodoName };
-
+    addNewItem(newTodoItem: TodoItem) {
         this.todoItems.update((oldTodoItems) => {
             return [...oldTodoItems, newTodoItem];
         });
-
-        this.newTodoCtrl.setValue('');
-        this.newTodoInput()?.nativeElement.focus();
     }
 
     deleteButtonClicked(idToBeDeleted: string) {
