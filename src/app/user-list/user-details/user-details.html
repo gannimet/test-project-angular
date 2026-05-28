@@ -1,0 +1,15 @@
+@if (user(); as user) {
+    <h2>Signal: {{ user.name }}</h2>
+}
+
+@if (user$ | async; as user) {
+    <h2>Observable: {{ user.name }}</h2>
+}
+
+@if (userResource.isLoading()) {
+    <p>Loading …</p>
+} @else if (userResource.hasValue()) {
+    @let user = userResource.value();
+
+    <h2>rxResource: {{ user.name }}</h2>
+}

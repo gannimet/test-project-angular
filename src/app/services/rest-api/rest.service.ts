@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { User } from './User';
 
 @Injectable({
     providedIn: 'root',
@@ -9,5 +10,13 @@ export class RestService {
 
     getRandomNumber() {
         return this.http.get<{ value: number }>('http://localhost:3000/randomnumber');
+    }
+
+    loadUserList() {
+        return this.http.get<User[]>('https://jsonplaceholder.typicode.com/users/');
+    }
+
+    loadUserDetails(id: string) {
+        return this.http.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`);
     }
 }
